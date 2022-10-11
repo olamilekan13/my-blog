@@ -11,4 +11,9 @@ class PostController extends Controller
         return view('index');
 
     }
+
+    public function add(){
+        return view('admin.posts.add');
+    }
+
 }
