@@ -21,3 +21,6 @@ use App\Http\Controllers\PostController;
 
 Route::get('/',[PostController::class,'index']);
 Route::get('admin/post/add',[PostController::class,'add']);
+Route::post('admin/post/store', [PostController::class, 'store']);
+
+

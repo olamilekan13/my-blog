@@ -121,7 +121,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action ="" method ="POST" enctype="multipart/form-data">
+                            <form action ="{{ url('admin/post/store') }}" method ="POST" enctype="multipart/form-data">
+                                @csrf
                                 <h6 class="heading-small text-muted mb-4">Post information</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
@@ -138,7 +139,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-username">Post Category</label>
-                                                                                                <select name="cat_id" class ="form-control">
+                                                                                                <select name="category_id" class ="form-control">
                                                                                                             <option value="1">Web Development</option>
                                                                                                             <option value="2">Fashion</option>
                                                                                                             <option value="3">Inspiration</option>
@@ -152,7 +153,7 @@
                                 <div class="pl-lg-4 ">
                                     <div class="form-group ">
                                         <label class="form-control-label ">Post Content</label>
-                                        <textarea id="postContent" name="post_content" rows="19" class="form-control " placeholder="Enter post title"></textarea>
+                                        <textarea id="postContent" name="content" rows="19" class="form-control " placeholder="Enter post title"></textarea>
                                     </div>
                                 </div>
                                 <div class="pl-lg-4 ">
