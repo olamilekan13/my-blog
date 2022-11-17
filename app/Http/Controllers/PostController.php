@@ -59,4 +59,12 @@ class PostController extends Controller
         
     }
 
+
+    // lists all post on the admin dashboard
+    public function adminIndex(){
+        
+        $posts = Post::all();
+        return view('admin.posts.index',["posts"=>$posts]);
+    }
+
 }
