@@ -17,6 +17,11 @@ class PostController extends Controller
         return view('admin.posts.add');
     }
 
+    public function edit($id){
+        $post = Post::find($id);
+        return view('admin.posts.edit', ['post' => $post] );
+    }
+
     public function store(Request $request){
         $image_img = " ";
 
