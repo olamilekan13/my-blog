@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -19,7 +20,8 @@ class PostController extends Controller
 
     public function edit($id){
         $post = Post::find($id);
-        return view('admin.posts.edit', ['post' => $post] );
+        $categories = Category::all();
+        return view('admin.posts.edit', ['post' => $post, 'categories'=>$categories]);
     }
 
     public function store(Request $request){

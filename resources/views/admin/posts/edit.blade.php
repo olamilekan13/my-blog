@@ -139,13 +139,20 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-username">Post Category</label>
-                                                                                                <select name="category_id" class ="form-control">
-                                                                                                            <option value="1">Web Development</option>
-                                                                                                            <option value="2">Fashion</option>
-                                                                                                            <option value="3">Inspiration</option>
-                                                                                                            <option value="4">Vacation</option>
-                                                                                                            <option value="5">Worship</option>
-                                                                                                    </select>
+                                                <select name="category_id" class ="form-control">
+                                                @foreach ( $categories as $key => $category )
+                                                @if ($category->id === $post->category_id)
+                                                <option selected value="{{$category->id}}">{{$category->name}}</option>
+
+                                                @else
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                    
+                                                @endif
+
+                                                
+                                                    
+                                                @endforeach                                                                
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +160,9 @@
                                 <div class="pl-lg-4 ">
                                     <div class="form-group ">
                                         <label class="form-control-label ">Post Content</label>
-                                        <textarea id="postContent" name="content" value="{{$post->content}}"  rows="19" class="form-control " placeholder="Enter post title"></textarea>
+                                        <textarea id="postContent" name="content" value=""  rows="19" class="form-control " placeholder="Enter post title">
+                                        {{$post->content}}
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="pl-lg-4 ">
@@ -172,7 +181,7 @@
                                 </div>
                                 <div class="d-flex mt-3 justify-content-end">
                                     <a href="" class="btn btn-secondary">Back</a>
-                                    <button type="submit" class="btn btn-success">Add Post</button>
+                                    <button type="submit" class="btn btn-success">Update Post</button>
                                 </div>
                             </form>
                         </div>
