@@ -24,6 +24,26 @@ class PostController extends Controller
         return view('admin.posts.edit', ['post' => $post, 'categories'=>$categories]);
     }
 
+    public function update($id){
+        $image = $request->file('img');
+        $image_img = $image->getClientOriginalName();
+
+        $post = Post::find($id);
+
+        $post->post_title = $request->title;
+        $post->category_id =$request->category_id;
+        if (!empty($image_img)) $post->img = $image_img;
+        $post->content =$request->content;
+        $post->save();
+        $this->uploadImg($request, $post->id);
+
+        return back()->with(['message', 'Post Updated Succesfully']);
+
+
+
+
+    }
+
     public function store(Request $request){
         $image_img = " ";
 
